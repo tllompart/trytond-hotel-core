@@ -17,5 +17,7 @@ class Hotel(sequence_ordered(), tree(separator='\\'), ModelSQL, ModelView):
                        states={'readonly': Eval('code_readonly', True), },
                        depends=['code_readonly'],
                        help="The unique identifier of the party.")
-    code_readonly = fields.Function(fields.Boolean('Code Readonly'), 'get_code_readonly')
-    company = fields.Many2One('company.company', 'Company', required=True, ondelete="RESTRICT")
+    code_readonly = fields.Function(fields.Boolean('Code Readonly'),
+                                    'get_code_readonly')
+    company = fields.Many2One('company.company', 'Company',
+                              required=True, ondelete="RESTRICT")
