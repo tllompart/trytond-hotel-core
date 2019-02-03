@@ -12,7 +12,7 @@ class Room(sequence_ordered(), tree(separator='\\'), ModelSQL, ModelView):
     'Room Description'
     __name__ = 'hotel.room'
 
-    name = fields.Char('Name', size=None, required=True, states= STATES)
+    name = fields.Char('Name', size=None, required=True, states=STATES)
     code = fields.Char('Code', required=True, select=True,
         states={
             'readonly': Eval('code_readonly', True),
@@ -25,5 +25,5 @@ class Room(sequence_ordered(), tree(separator='\\'), ModelSQL, ModelView):
             ondelete="RESTRICT")
     roomtype = fields.Many2One('hotel.roomtype', 'RoomType', required=True,
             ondelete="RESTRICT")
-    smoker = fields.Boolean('Smoker Room', states= STATES)
-    
+    smoker = fields.Boolean('Smoker Room', states=STATES)
+

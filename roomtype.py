@@ -12,7 +12,7 @@ class RoomType(sequence_ordered(), tree(separator='\\'), ModelSQL, ModelView):
     'Room Type Description'
     __name__ = 'hotel.roomtype'
 
-    name = fields.Char('Name', size=None, required=True, states= STATES)
+    name = fields.Char('Name', size=None, required=True, states=STATES)
     code = fields.Char('Code', required=True, select=True,
         states={
             'readonly': Eval('code_readonly', True),
